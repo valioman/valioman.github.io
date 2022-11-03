@@ -1,0 +1,773 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<title>HTMLTest - Tables</title>
+		<style type="text/css">
+		    .do {
+				background-color: lightblue;
+				border: 1px solid blue;
+				position:relative;
+			}
+			input {
+				border: 1px dotted #6E8593;
+			}
+			
+			table {
+				border: 1px solid black;
+				border-collapse: collapse;
+			}
+			td {
+				border: 1px solid black;
+			}
+			
+			th {
+				border: 1px solid black;
+			}
+		</style>
+		<script type="text/javascript">
+			var timeout=3000;
+			function enableControl(id) {
+				var control
+				control = document.getElementById(id);
+				if (control != null) {
+					control.disabled = false;
+				}
+			}
+			
+			function testControlClick(e, myControl, myMessage) {
+                    if(myControl.disabled)
+                        return;
+
+                    var infoBox
+                    if(!e)
+                        e = window.event
+
+                    infoBox = document.getElementById("testControlClick");
+
+                    if(e.shiftKey){
+                        infoBox.value = "shift and " + myMessage;
+                        return;
+                    }else if(e.altKey){
+                        infoBox.value = "alt and " + myMessage;
+                        return;
+                    }else if(e.ctrlKey){
+                        infoBox.value = "ctrl and " + myMessage;
+                        return;
+                    }
+                    
+                    if(infoBox.value!="") infoBox.value = infoBox.value + "\n";
+                    infoBox.value = infoBox.value + myMessage;
+                }
+				
+			function testRightClick(e, myControl, myMessage){
+					if(myControl.disabled)
+                        return;
+                    var infoBox
+                    infoBox = document.getElementById("testControlClick");
+                    if(e.button == 2 ||e.which == 3){
+                        infoBox.value = myMessage;
+                    }else{
+						return;
+                    }
+                }
+		/* 	function testControlClick(srcControl, myText) {
+				if (srcControl.disabled != false) return;
+				
+				var control
+				control = document.getElementById("testControlClick");
+				if (control != null) {
+					control.value=myText;
+				}
+			} */
+			
+			function resetMe() {
+				location.reload(true);
+			}
+			
+		</script>	
+		<script type="text/javascript" src="logic_unicode_tables.js"></script>
+		<script type="text/javascript" src="res_chinese-simp.js"></script>
+		
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="Author" content="Michael Niessl" />
+	</head>
+	<body>
+		<input id="switch_chinese_btn_tables" name="switch_chinese_btn" value="Chinese (Simplified)" onclick="javascript:determineLanguage_tables('Chinese');" type="button" />
+		<input id="switch_english_btn_tables" name="switch_english_btn" value="English" onclick="javascript:determineLanguage_tables('English');" type="button" /></p>
+		
+		<table width="400" id="mit_controls" cellpadding="5" cellspacing="2">
+		 <tr>
+		  <th id="ID1" align="left">Spalte1</th>
+		  <th id="ID2" align="right">Spalte2</th>
+		  <th id="ID3" align="right">Spalte3</th>		  
+		 </tr>
+		 <tr>
+		    <td align="left">
+		        <p>&nbsp;<input id="editboxDisabled" value="" name="editboxDisabled" ondblclick="javascript:testControlClick(event, this, 'doubleclicked on editbox...');" onclick="javascript:testControlClick(event, this, 'clicked on editbox...');" onmousedown="testRightClick(event, this, 'Right clicked on editbox...');"type="text" disabled="disabled" /></p>
+		    </td>
+		    <td align="center">
+		        <input class="do" id="enableEditbox" name="button" ondblclick="javascript:testControlClick(event, this, 'doubleclicked on button...');" onclick="javascript:testControlClick(event, this, 'clicked on button...');setTimeout('enableControl(\'editboxDisabled\');', timeout)" onmousedown="testRightClick(event, this, 'Right clicked on button...');"type="button">
+		    </td>
+		  <td align="right"></td>
+		    
+		 </tr>
+		 <tr>
+		  <td align="left"><input id="checkbox1" name="checkbox1" ondblclick="javascript:testControlClick(event, this, 'doubleclicked on checkbox1...');" onclick="javascript:testControlClick(event, this, 'clicked on checkbox1...');" onmousedown="testRightClick(event, this, 'Right clicked on checkbox1...');" type="checkbox" value="Check1"><input id="checkbox2" name="checkbox2" ondblclick="javascript:testControlClick(event, this, 'doubleclicked on checkbox2...');" onclick="javascript:testControlClick(event, this, 'clicked on checkbox2...');" onmousedown="testRightClick(event, this, 'Right clicked on checkbox2...');" type="checkbox" value="Check2"></td>
+		  <td align="right">$241.10</td>
+		  <td align="right">$50.20</td>
+		 </tr>
+		 <tr>
+		  <td align="left"><input id="editbox1" value="" name="editbox1" ondblclick="javascript:testControlClick(event, this, 'doubleclicked on editbox1...');" onclick="javascript:testControlClick(event, this, 'clicked on editbox1...');" onmousedown="testRightClick(event, this, 'Right clicked on editbox1...');" type="text"><br/><input id="editbox2" value="" name="editbox2" ondblclick="javascript:testControlClick(event, this, 'doubleclicked on editbox2...');" onclick="javascript:testControlClick(event, this, 'clicked on editbox2...');" onmousedown="testRightClick(event, this, 'Right clicked on editbox2...');" type="text"></td>
+		  <td align="right">$30.00</td>
+		  <td align="right">$44.45</td>
+		 </tr>
+
+		 <tr>
+
+		  <td align="right">                               
+			<SELECT name="combobox1" ondblclick="javascript:testControlClick(event, this, 'doubleclicked on combobox1...');" onclick="javascript:testControlClick(event, this, 'clicked on combobox1...');" onmousedown="testRightClick(event, this, 'Right clicked on combobox1...');">
+                              <OPTION id="comboxbox1_opt1">
+                                 Vanilla
+                              </OPTION>
+                              <OPTION id="comboxbox1_opt2" selected>
+                                 Chocolate
+                              </OPTION>
+                              <OPTION id="comboxbox1_opt3">
+                                 Cherry Garcia
+                              </OPTION>
+                              <OPTION id="comboxbox1_opt4">
+                                 Pizza Pancake
+                              </OPTION>
+                              <OPTION id="comboxbox1_opt5">
+                                 None of the above!
+                              </OPTION>	
+                           </SELECT>
+						   <br/>
+			<SELECT name="combobox2" ondblclick="javascript:testControlClick(event, this, 'doubleclicked on combobox2...');" onclick="javascript:testControlClick(event, this, 'clicked on combobox2...');" onmousedown="testRightClick(event, this, 'Right clicked on combobox2...');">
+                              <OPTION>
+                                 Vanilla
+                              </OPTION>
+                              <OPTION selected>
+                                 Chocolate
+                              </OPTION>
+                              <OPTION>
+                                 Cherry Garcia
+                              </OPTION>
+                              <OPTION>
+                                 Pizza Pancake
+                              </OPTION>
+                              <OPTION>
+                                 None of the above!
+                              </OPTION>	
+                           </SELECT></td>
+	  	<td align="right">1</td>
+
+		<td align="right">2</td>
+
+
+
+		 <tr>
+		  <td id="mit_controls_td_food" align="left">Food</td>
+		  <td align="right">$730.40</td>
+		  <td align="right">$650.00</td>
+		 </tr>
+		 <tr>
+		  <td align="left" name="rbgrpInCell">Radiobuttongrp</td>
+            <td align="right">
+		        <input id="radio1" name="rbgrpInCell" ondblclick="javascript:testControlClick(event, this, 'doubleclicked on rbgrpInCell-radio1...');" onclick="javascript:testControlClick(event, this, 'clicked on rbgrpInCell-radio1...');" onmousedown="testRightClick(event, this, 'Right clicked on rbgrpInCell-radio1...');" type="radio" value="Radio1">Radio1 
+                <input id="radio2" name="rbgrpInCell" ondblclick="javascript:testControlClick(event, this, 'doubleclicked on rbgrpInCell-radio2...');" onclick="javascript:testControlClick(event, this, 'clicked on rbgrpInCell-radio2...');" onmousedown="testRightClick(event, this, 'Right clicked on rbgrpInCell-radio2...');" type="radio" value="Radio2">Radio2 
+            </td>
+		  <td align="right">$650.00</td>
+		 </tr>
+ 		 
+ 		 <tr>
+		  <td align="left">Radiobuttongrp</td>
+            <td align="right">
+		        <input id="radio1" name="rbgrptbl" ondblclick="javascript:testControlClick(event, this, 'doubleclicked on rbgrptbl-radio1...');" onclick="javascript:testControlClick(event, this, 'clicked on rbgrptbl-radio1...');" onmousedown="testRightClick(event, this, 'Right clicked on rbgrptbl-radio1...');" type="radio" value="Radgrp1"><span id="text_radio1_tables" value="Radio1">Radio1</span> 
+
+            </td>
+		  <td align="right">
+		    <input id="radio2" name="rbgrptbl" ondblclick="javascript:testControlClick(event, this, 'doubleclicked on rbgrptbl-radio2...');" onclick="javascript:testControlClick(event, this, 'clicked on rbgrptbl-radio2...');" onmousedown="testRightClick(event, this, 'Right clicked on rbgrptbl-radio2...');" type="radio" value="Radgrp2">Radio2 </td>
+		 </tr>
+
+		 <tr>
+		  <th align="left">Sum</th>
+		  <th align="right">$1001.50</th>
+		  <th align="right">$744.65</th>
+		 </tr>
+		</table><br />
+
+		<table width="400" id="normal" cellpadding="5" cellspacing="2">
+		 <tr>
+		  <th align="left">December</th>
+		  <th align="right">January</th>
+		  <th align="right">February</th>
+		 </tr>
+		 <tr>
+		  <td align="left">Clothes</td>
+		  <td align="right">$241.10</td>
+		  <td align="right">$50.20</td>
+		 </tr>
+		 <tr>
+		  <td align="left">Make-Up</td>
+		  <td align="right">$30.00</td>
+		  <td align="right">$44.45</td>
+		 </tr>
+		 <tr>
+		  <td align="left">Food</td>
+		  <td align="right">$730.40</td>
+		  <td align="right">$650.00</td>
+		 </tr>
+		 <tr>
+		  <th align="left">Sum</th>
+		  <th align="right">$1001.50</th>
+		  <th align="right">$744.65</th>
+		 </tr>
+		</table><br />
+
+		<table width="400" id="same_rowname" cellpadding="5" cellspacing="2">
+		 <tr>
+		  <th align="left">Difference</th>
+		  <th align="right">Same</th>
+		  <th align="right">InputRow</th>
+		 </tr>
+		 <tr>
+		  <td align="left">First</td>
+		  <td align="right">This Row</td>
+		  <td align="right"><INPUT type="text" name="in1" size="2" ondblclick="javascript:testControlClick(event, this, 'doubleclicked on in1...');" onclick="javascript:testControlClick(event, this, 'clicked on in1...');" onmousedown="testRightClick(event, this, 'Right clicked on in1...');"></td>
+		 </tr>
+		 <tr>
+		  <td align="left">Second</td>
+		  <td align="right">Different</td>
+		  <td align="right"><INPUT type="text" name="in2" size="2" ondblclick="javascript:testControlClick(event, this, 'doubleclicked on in2...');" onclick="javascript:testControlClick(event, this, 'clicked on in2...');" onmousedown="testRightClick(event, this, 'Right clicked on in2...');"></td>
+		 </tr>
+		 <tr>
+		  <td align="left">Third</td>
+		  <td align="right">Different</td>
+		  <td align="right"><INPUT type="text" name="in3" size="2" ondblclick="javascript:testControlClick(event, this, 'doubleclicked on in3...');" onclick="javascript:testControlClick(event, this, 'clicked on in3...');" onmousedown="testRightClick(event, this, 'Right clicked on in3...');"></td>
+		 </tr>
+		 <tr>
+		  <td align="left">Fourth</td>
+		  <td align="right">This Row</td>
+		  <td align="right"><INPUT type="text" name="in4" size="2" ondblclick="javascript:testControlClick(event, this, 'doubleclicked on in4...');" onclick="javascript:testControlClick(event, this, 'clicked on in4...');" onmousedown="testRightClick(event, this, 'Right clicked on in4...');"></td>
+		 </tr>
+		 <tr>
+		  <td align="left">Fifth</td>
+		  <td align="right">Different</td>
+		  <td align="right"><INPUT type="text" name="in5" size="2" ondblclick="javascript:testControlClick(event, this, 'doubleclicked on in5...');" onclick="javascript:testControlClick(event, this, 'clicked on in5...');" onmousedown="testRightClick(event, this, 'Right clicked on in5...');"></td>
+		 </tr>
+		 <tr>
+		  <td align="left">Sixth</td>
+		  <td align="right">Different</td>
+		  <td align="right"><INPUT type="text" name="in6" size="2" ondblclick="javascript:testControlClick(event, this, 'doubleclicked on in6...');" onclick="javascript:testControlClick(event, this, 'clicked on in6...');" onmousedown="testRightClick(event, this, 'Right clicked on in6...');"></td>
+		 </tr>
+		</table>
+		<br />
+
+		
+		<table id="colspan" cellpadding="5" cellspacing="2">
+		<tr>
+		  <th>Name</th>
+		  <th colspan="2">Telephone</th>
+		  <th colspan="1">Telephone 2</th>
+		</tr>
+		<tr>
+		  <td>Bill Gates</td>
+		  <td>555 77 854</td>
+		  <td>555 77 855</td>
+		  <td>555 77 856</td>
+		</tr>
+		</table><br />
+		
+		<table id="rowspan" cellpadding="5" cellspacing="2">
+		<tr>
+		  <th ondblclick="javascript:testControlClick(event, this, 'doubleclicked on Header-First Name...');" onclick="javascript:testControlClick(event, this, 'clicked on Header-First Name...');" onmousedown="testRightClick(event, this, 'Right clicked on Header-First Name...');">First Name:</th>
+		  <td ondblclick="javascript:testControlClick(event, this, 'doubleclicked on Cell-Bill Gates...');" onclick="javascript:testControlClick(event, this, 'clicked on Cell-Bill Gates...');" onmousedown="testRightClick(event, this, 'Right clicked on Cell-Bill Gates...');">Bill Gates</td>
+		</tr>
+		<tr>
+		  <th rowspan="2" ondblclick="javascript:testControlClick(event, this, 'doubleclicked on Header-Telephone...');" onclick="javascript:testControlClick(event, this, 'clicked on Header-Telephone...');" onmousedown="testRightClick(event, this, 'Right clicked on Header-Telephone...');">Telephone:</th>
+		  <td ondblclick="javascript:testControlClick(event, this, 'doubleclicked on Cell-Phonenumber1...');" onclick="javascript:testControlClick(event, this, 'clicked on Cell-Phonenumber1...');" onmousedown="testRightClick(event, this, 'Right clicked on Cell-Phonenumber1...');">555 77 854</td>
+		</tr>
+		<tr ondblclick="javascript:testControlClick(event, this, 'doubleclicked on Row-Phonenumber2...');" onclick="javascript:testControlClick(event, this, 'clicked on Row-Phonenumber2...');" onmousedown="testRightClick(event, this, 'Right clicked on Row-Phonenumber2...');"<s>
+		  <td>555 77 855</td>
+		</tr>
+		</table><br />
+		
+		<table id="mixed" cellpadding="5" cellspacing="2">
+		<tr>
+		  <td rowspan=2>Items A1,<br>B1</td>
+		  <td colspan=2>Items A2, A3</td>
+		</tr>
+		<tr>
+		  <th colspan=2>Items B2, B3</th>
+		</tr>
+		<tr>
+		  <th>Item C1</th>
+		  <td rowspan=2> C2,D2 </td>
+		  <td>*C3*</td>
+		</tr>
+		<tr>
+		  <td>Item number D1</td>
+		  <td>Item D3</td>
+		</tr>
+		</table><br />
+		
+		<TABLE border="1" cellpadding="5" cellspacing="2"
+		  summary="History courses offered in the community of
+				   Bath arranged by course name, tutor, summary, 
+				   code, and fee" id="complex1">
+		  <TR>
+			<TH colspan="5" scope="colgroup">Community Courses -- Bath Autumn 1997</TH>
+		  </TR>
+		  <TR>
+			<TH scope="col" abbr="Name">Course Name</TH>
+			<TH scope="col" abbr="Tutor">Course Tutor</TH>
+			<TH scope="col">Summary</TH>
+			<TH scope="col">Code</TH>
+			<TH scope="col">Fee</TH>
+		  </TR>
+		  <TR>
+			<TD scope="row">After the Civil War</TD>
+			<TD>Dr. John Wroughton</TD>
+			<TD>
+			   The course will examine the turbulent years in England
+			   after 1646. <EM>6 weekly meetings starting Monday 13th
+			  October.</EM>
+			</TD>
+			<TD>H27</TD>
+			<TD>&pound;32</TD>
+		  </TR>
+		  <TR>
+			<TD scope="row">An Introduction to Anglo-Saxon England</TD>
+			<TD>Mark Cottle</TD>
+			<TD>
+			   One day course introducing the early medieval
+			   period reconstruction the Anglo-Saxons and
+			   their society. <EM>Saturday 18th October.</EM>
+			</TD>
+			<TD>H28</TD>
+			<TD>&pound;18</TD>
+		  </TR>
+		  <TR>
+			<TD scope="row">The Glory that was Greece</TD>
+			<TD>Valerie Lorenz</TD>
+			<TD>
+			 Birthplace of democracy, philosophy, heartland of theater, home of
+			 argument. The Romans may have done it but the Greeks did it
+			 first. <EM>Saturday day school 25th October 1997</EM>
+			</TD>
+			<TD>H30</TD>
+			<TD>&pound;18</TD>
+		  </TR>
+		</TABLE><br />
+		
+		
+		<table cellpadding="5" cellspacing="2" id="complex2">
+			<caption>Characteristics of homicides in 1985</caption>
+			
+			<colgroup span="1" width="34%">
+			</colgroup><colgroup span="6" width="11%">
+			
+			</colgroup><thead>
+			<tr>
+			<th class="stubHeading" rowspan="3" id="c1">Agency by State</th>
+			<th rowspan="3" id="c2">Number of<br>homicide<br>victims</th>
+			<th class="spanner" colspan="5" id="c3">Percent of homicide victims <nobr>by --</nobr></th>
+			</tr>
+			
+			<tr>
+			<th class="spanner" colspan="3" id="c4" headers="c3">Race</th>
+			
+			<th class="spanner" colspan="2" id="c5" headers="c3">Gender</th>
+			</tr>
+			
+			<tr>
+			<th id="c6" headers="c3 c4">White</th>
+			<th id="c7" headers="c3 c4">Black</th>
+			<th id="c8" headers="c3 c4">Other</th>
+			<th id="c9" headers="c3 c5">Male</th>
+			<th id="c10" headers="c3 c5">Female</th>
+			</tr>
+			</thead>
+			
+			<tbody>
+			<tr>
+			<th class="stub0" id="r1" headers="c1">Alabama</th>
+			<td colspan="6"></td>
+			</tr>
+			
+			<tr>
+			<th class="stub1" id="r2" headers="r1 c1">City</th>
+			<td colspan="6"></td>
+			</tr>
+			
+			<tr>
+			<th class="stub2" id="r3" headers="r1 r2 c1">Birmingham Policy Department</th>
+			
+			<td headers="r1 r2 r3 c2">97</td>
+			<td headers="r1 r2 r3 c3 c4 c6">20.8</td>
+			<td headers="r1 r2 r3 c3 c4 c7">79.2</td>
+			<td headers="r1 r2 r3 c3 c4 c8">0</td>
+			<td headers="r1 r2 r3 c3 c5 c9">83.3</td>
+			<td headers="r1 r2 r3 c3 c5 c10">16.7</td>
+			</tr>
+			
+			<tr>
+			<th class="stub0" id="r4" headers="c1">Arizona</th>
+			
+			<td colspan="6"></td>
+			</tr>
+			
+			<tr>
+			<th class="stub1" id="r5" headers="r4 c1">City</th>
+			<td colspan="6"></td>
+			</tr>
+			
+			<tr>
+			<th class="stub2" id="r6" headers="r4 r5 c1">Phoenix Policy Department</th>
+			<td headers="r4 r5 r6 c2">89</td>
+			<td headers="r4 r5 r6 c3 c4 c6">85.2</td>
+			<td headers="r4 r5 r6 c3 c4 c7">11.4</td>
+			
+			<td headers="r4 r5 r6 c3 c4 c8">3.4</td>
+			<td headers="r4 r5 r6 c3 c5 c9">71.6</td>
+			<td headers="r4 r5 r6 c3 c5 c10">28.4</td>
+			</tr>
+			
+			<tr>
+			<th class="stub2" id="r7" headers="r4 r5 c1">Tucson Police Department</th>
+			<td headers="r4 r5 r7 c2">32</td>
+			<td headers="r4 r5 r7 c3 c4 c6">87.5</td>
+			<td headers="r4 r5 r7 c3 c4 c7">9.4</td>
+			
+			<td headers="r4 r5 r7 c3 c4 c8">3.1</td>
+			<td headers="r4 r5 r7 c3 c5 c9">71.9</td>
+			<td headers="r4 r5 r7 c3 c5 c10">28.1</td>
+			</tr>
+			
+			<tr>
+			<th class="stub0" id="r8" headers="c1">California</th>
+			<td colspan="6"></td>
+			</tr>
+			
+			<tr>
+			<th class="stub1" id="r9" headers="r8 c1">City</th>
+			
+			<td colspan="6"></td>
+			</tr>
+			
+			<tr>
+			<th class="stub2" id="r10" headers="r8 r9 c1">Fresno Policy Department</th>
+			<td headers="r8 r9 r10 c2">46</td>
+			<td headers="r8 r9 r10 c3 c4 c6">78.3</td>
+			<td headers="r8 r9 r10 c3 c4 c7">17.4</td>
+			<td headers="r8 r9 r10 c3 c4 c8">4.3</td>
+			<td headers="r8 r9 r10 c3 c5 c9">68.1</td>
+			<td headers="r8 r9 r10 c3 c5 c10">31.9</td>
+			
+			</tr>
+			
+			<tr>
+			<th class="stub2" id="r11" headers="r8 r9 c1">Long Beach Policy Department</th>
+			<td headers="r8 r9 r11 c2">63</td>
+			<td headers="r8 r9 r11 c3 c4 c6">68.3</td>
+			<td headers="r8 r9 r11 c3 c4 c7">27.0</td>
+			<td headers="r8 r9 r11 c3 c4 c8">4.8</td>
+			<td headers="r8 r9 r11 c3 c5 c9">71.4</td>
+			<td headers="r8 r9 r11 c3 c5 c10">28.6</td>
+			
+			</tr>
+			
+			<tr>
+			<th class="stub1" id="r12" headers="r8 c1">County</th>
+			<td colspan="6"></td>
+			</tr>
+			
+			<tr>
+			<th class="stub2" id="r13" headers="r8 r12 c1">Kern County Sheriff Department</th>
+			<td headers="r8 r12 r13 c2">34</td>
+			<td headers="r8 r12 r13 c3 c4 c6">81.6</td>
+			<td headers="r8 r12 r13 c3 c4 c7">13.2</td>
+			
+			<td headers="r8 r12 r13 c3 c4 c8">5.3</td>
+			<td headers="r8 r12 r13 c3 c5 c9">73.2</td>
+			<td headers="r8 r12 r13 c3 c5 c10">26.8</td>
+			</tr>
+			</tbody>
+			
+			<tfoot>
+			<tr>
+			<td class="noNotes" colspan="7">&nbsp;</td>
+			</tr>
+			</tfoot>
+		</table><br />
+		
+		<TABLE cellpadding="5" cellspacing="2" id="complex3_outer">
+         <CAPTION align="top">
+            A more complex table-within-a table.
+         </CAPTION>
+         <TR>
+            <TH>
+               Outer Table
+            </TH>
+            <TD>
+               <TABLE cellpadding="5" cellspacing="2" id="complex3_inner">
+                  <CAPTION align="top">
+                     An inner table showing a variety of headings
+                     and data items.
+                  </CAPTION>
+                  <TR>
+                     <TH colspan="5">
+                        Inner Table
+                     </TH>
+                  </TR>
+                  <TR>
+                     <TH rowspan="2" colspan="2">
+                        CORNER
+                     </TH>
+                     <TH colspan="3">
+                        Head1
+                     </TH>
+                  </TR>
+                  <TR>
+                     <TH rowspan="2">
+                        Head2
+                     </TH>
+                     <TH colspan="2">
+                        Head3
+                     </TH>
+                  </TR>
+                  <TR>
+                     <TH>
+                        Head4
+                     </TH>
+                     <TH>
+                        Head5
+                     </TH>
+                     <TH>
+                        Head6
+                     </TH>
+                  </TR>
+                  <TR>
+                     <TD>
+                        A
+                     </TD>
+                     <TD rowspan="2" valign="middle" bgcolor=
+                     "yellow">
+                        Two Tall
+                     </TD>
+                     <TD bgcolor="green">
+                        <UL>
+                           <LI>
+                              Lists can be table data
+                           </LI>
+                           <LI>
+                              Images can be table data
+                           </LI>
+                        </UL>
+                     </TD>
+                     <TD colspan="2" align="center">
+                        Two Wide
+                     </TD>
+                  </TR>
+                  <TR valign="middle">
+                     <TD>
+                        <IMG  src="imglink.gif" alt="HTML Station" onclick="javascript:testControlClick(event, this, 'clicked on Imglink...');" ondblclick="javascript:testControlClick(event, this, 'doubleclicked on Imglink...');" onmousedown="javascript:testRightClick(event, this, 'Right clicked on Imglink...');">
+                     </TD>
+                     <TD align="center">
+                        A <A href="waiton.html" onclick="javascript:testControlClick(event, this, 'clicked on Link...');" ondblclick="javascript:testControlClick(event, this, 'doubleclicked on Link...');" onmousedown="javascript:testRightClick(event, this, 'Right clicked on Link...');">Form</A> in a table: 
+                        <FORM method="POST" action=
+                        "waiton.html">
+                           <INPUT type="hidden" name="recipient"
+                           value="nobody@december.com"><INPUT type=
+                           "hidden" name="subject" value=
+                           "Table Example"> Your age: <INPUT onclick="javascript:testControlClick(event, this, 'clicked on user-age...');" ondblclick="javascript:testControlClick(event, this, 'doubleclicked on user-age...');" onmousedown="javascript:testRightClick(event, this, 'Right clicked on user-age...');" type=
+                           "text" name="user-age" size="2"><BR>
+                            What is your favorite ice cream?<BR>    
+                               <SELECT name="favorite-icecream" onclick="javascript:testControlClick(event, this, 'clicked on favorite-icecream...');" ondblclick="javascript:testControlClick(event, this, 'doubleclicked on favorite-icecream...');" onmousedown="javascript:testRightClick(event, this, 'Right clicked on favorite-icecream...');">
+                              <OPTION>
+                                 Vanilla
+                              </OPTION>
+                              <OPTION selected>
+                                 Chocolate
+                              </OPTION>
+                              <OPTION>
+                                 Cherry Garcia
+                              </OPTION>
+                              <OPTION>
+                                 Pizza Pancake
+                              </OPTION>
+                              <OPTION>
+                                 None of the above!
+                              </OPTION>
+                           </SELECT><BR>
+                            <INPUT id="submit_ok" type="submit" value="OK" onclick="javascript:testControlClick(event, this, 'clicked on OK...');" ondblclick="javascript:testControlClick(event, this, 'doubleclicked on OK...');" onmousedown="javascript:testRightClick(event, this, 'Right clicked on OK...');">
+							<INPUT type="reset" value="Cancel" onclick="javascript:testControlClick(event, this, 'clicked on Cancel...');" ondblclick="javascript:testControlClick(event, this, 'doubleclicked on Cancel...');" onmousedown="javascript:testRightClick(event, this, 'Right clicked on Cancel...');">
+                        </FORM>
+                     </TD>
+                     <TD>
+                        <TABLE cellpadding="5" cellspacing="2" id="complex3_inner_inner">
+                           <CAPTION>
+                              No border
+                           </CAPTION>
+                           <TR>
+                              <TH>
+                                 Little
+                              </TH>
+                           </TR>
+                           <TR>
+                              <TD>
+                                 Table
+                              </TD>
+                           </TR>
+                        </TABLE>
+                     </TD>
+                     <TD>
+                        Multiple<BR>
+                         line<BR>
+                         item
+                     </TD>
+                  </TR>
+               </TABLE>
+            </TD>
+         </TR>
+      </TABLE>
+      <br/>
+	
+         <CAPTION align="top">
+            Separate Header
+         </CAPTION>	
+	<table width="400" id="separate_header" cellpadding="5" cellspacing="2">
+		<tr>
+			<th id="sep1" align="left">Spalte1</th>
+			<th id="sep2" align="right">Spalte2</th>
+			<th id="sep3" align="right">Spalte3</th>
+			<th id="sep4" align="right">Editboxen</th>
+		</tr>
+	</table>
+         <CAPTION align="top">
+            Separate Header with two rows
+         </CAPTION>	
+	
+	<table width="400" id="separate_dummy" cellpadding="5" cellspacing="2">
+		<tr>
+			<th id="doublesep1_1" align="left">Spalte1_1</th>
+			<th id="doublesep2_1" align="right">Spalte2_1</th>
+			<th id="doublesep3_1" align="right">Spalte3_1</th>
+			<th id="doublesep4_1" align="right">Editboxen_1</th>
+		</tr>
+		<tr>
+			<th id="doublesep1_2" align="left">Spalte1_2</th>
+			<th id="doublesep2_2" align="right">Spalte2_2</th>
+			<th id="doublesep3_2" align="right">Spalte3_2</th>
+			<th id="doublesep4_2" align="right">Editboxen_2</th>
+		</tr>
+
+	</table>
+	         <CAPTION align="top">
+	Separate Data
+         </CAPTION>	
+
+
+	<table width="400" id="separate_data" cellpadding="5" cellspacing="2">
+		 <tr>
+		  <td align="left"><input id="checkbox" name="checkbox" type="checkbox" value="Check1" onclick="javascript:testControlClick(event, this, 'clicked on Check1...');" ondblclick="javascript:testControlClick(event, this, 'doubleclicked on Check1...');" onmousedown="javascript:testRightClick(event, this, 'Right clicked on Check1...');"></td>
+		  <td align="right">$241.10</td>
+		  <td align="right">$50.20</td>
+		  <td align="right"><INPUT type="text" name="sep1_text" size="2" onclick="javascript:testControlClick(event, this, 'clicked on sep1_text...');" ondblclick="javascript:testControlClick(event, this, 'doubleclicked on sep1_text...');" onmousedown="javascript:testRightClick(event, this, 'Right clicked on sep1_text...');"></td>
+		 </tr>
+		 <tr>
+		  <td align="left"><input id="editbox" value="" name="editbox" type="text" onclick="javascript:testControlClick(event, this, 'clicked on editbox...');" ondblclick="javascript:testControlClick(event, this, 'doubleclicked on editbox...');" onmousedown="javascript:testRightClick(event, this, 'Right clicked on editbox...');"></td>
+		  <td align="right">$30.00</td>
+		  <td align="right">$44.45</td>
+		  <td align="right"><INPUT type="text" name="sep2_text" size="2" onclick="javascript:testControlClick(event, this, 'clicked on sep2_text...');" ondblclick="javascript:testControlClick(event, this, 'doubleclicked on sep2_text...');" onmousedown="javascript:testRightClick(event, this, 'Right clicked on sep2_text...');"></td>
+		 </tr>
+
+		 <tr>
+
+		  <td align="right">                               
+			<SELECT name="favorite-icecream" onclick="javascript:testControlClick(event, this, 'clicked on sep_favorite-icecream...');" ondblclick="javascript:testControlClick(event, this, 'doubleclicked on sep_favorite-icecream...');" onmousedown="javascript:testRightClick(event, this, 'Right clicked on sep_favorite-icecream...');">
+                              <OPTION>
+                                 Vanilla
+                              </OPTION>
+                              <OPTION selected>
+                                 Chocolate
+                              </OPTION>
+
+                              <OPTION>
+                                 Cherry Garcia
+                              </OPTION>
+                              <OPTION>
+                                 Pizza Pancake
+                              </OPTION>
+                              <OPTION>
+                                 None of the above!
+                              </OPTION>	
+                           </SELECT></td>
+	  	<td align="right">1</td>
+
+		<td align="right">2</td>
+		  <td align="right"><INPUT type="text" name="sep3_text" size="2" onclick="javascript:testControlClick(event, this, 'clicked on sep3_text...');" ondblclick="javascript:testControlClick(event, this, 'doubleclicked on sep3_text...');" onmousedown="javascript:testRightClick(event, this, 'Right clicked on sep3_text...');"></td>
+
+
+		 <tr>
+		  <td align="left">Food</td>
+		  <td align="right">$730.40</td>
+		  <td align="right">$650.00</td>
+		  <td align="right"><INPUT type="text" name="sep4_text" size="2" onclick="javascript:testControlClick(event, this, 'clicked on sep4_text...');" ondblclick="javascript:testControlClick(event, this, 'doubleclicked on sep4_text...');" onmousedown="javascript:testRightClick(event, this, 'Right clicked on sep4_text...');"></td>
+		 </tr>
+		 <tr>
+			<td align="left">Radiobuttongrp</td>
+            		<td align="right">
+			        <input id="radio1" name="rbgCellSep" type="radio" value="Radio1" onclick="javascript:testControlClick(event, this, 'clicked on rbgCellSep-Radio1...');" ondblclick="javascript:testControlClick(event, this, 'doubleclicked on rbgCellSep-Radio1...');" onmousedown="javascript:testRightClick(event, this, 'Right clicked on rgbCellSep-Radio1...');">Radio1 
+                		<input id="radio2" name="rbgCellSep" type="radio" value="Radio2" onclick="javascript:testControlClick(event, this, 'clicked on rbgCellSep-Radio2...');" ondblclick="javascript:testControlClick(event, this, 'doubleclicked on rbgCellSep-Radio2...');" onmousedown="javascript:testRightClick(event, this, 'Right clicked on rgbCellSep-Radio2...');">Radio2 
+			</td>
+			<td align="right">$650.00</td>
+			<td align="right"><INPUT type="text" name="sep5_text" size="2" onclick="javascript:testControlClick(event, this, 'clicked on sep5_text...');" ondblclick="javascript:testControlClick(event, this, 'doubleclicked on sep5_text...');" onmousedown="javascript:testRightClick(event, this, 'Right clicked on sep5_text...');"></td>
+		 </tr>
+ 		 
+ 		 <tr>
+			<td align="left">Radiobuttongrp</td>
+			<td align="right">
+				<input id="radio1" name="rbgrptblSep" type="radio" value="Radgrp1" onclick="javascript:testControlClick(event, this, 'clicked on rbgrptblSep-Radio1...');" ondblclick="javascript:testControlClick(event, this, 'doubleclicked on rbgrptblSep-Radio1...');" onmousedown="javascript:testRightClick(event, this, 'Right clicked on rbgrptblSep-Radio1...');">Radio1 
+			</td>
+
+			<td align="right">	  
+				<input id="radio2" name="rbgrptblSep" type="radio" value="Radgrp2" onclick="javascript:testControlClick(event, this, 'clicked on rbgrptblSep-Radio2...');" ondblclick="javascript:testControlClick(event, this, 'doubleclicked on rbgrptblSep-Radio2...');" onmousedown="javascript:testRightClick(event, this, 'Right clicked on rbgrptblSep-Radio2...');">Radio2
+			</td>
+			<td align="right">
+				<INPUT type="text" name="sep6_text" size="2" onclick="javascript:testControlClick(event, this, 'clicked on sep6_text...');" ondblclick="javascript:testControlClick(event, this, 'doubleclicked on sep6_text...');" onmousedown="javascript:testRightClick(event, this, 'Right clicked on sep6_text...');">
+			</td>
+		 </tr>
+
+		</table>
+	<br />
+      
+      
+      <a href="waiton.html" id="back" onclick="javascript:testControlClick(event, this, 'clicked on back...');" ondblclick="javascript:testControlClick(event, this, 'doubleclicked on back...');" onmousedown="javascript:testRightClick(event, this, 'Right clicked on back...');">back</a>
+      <p>
+         <a href="somewhere.html" id="somewhere-link1" onclick="javascript:testControlClick(event, this, 'clicked on somewhere-link1...');" ondblclick="javascript:testControlClick(event, this, 'doubleclicked on somewhere-link1...');" onmousedown="javascript:testRightClick(event, this, 'Right clicked on somewhere-link1...');">somewhere</a>
+         <a href="somewhere.html" id="somewhere-link2" onclick="javascript:testControlClick(event, this, 'clicked on somewhere-link2...');" ondblclick="javascript:testControlClick(event, this, 'doubleclicked on somewhere-link2...');" onmousedown="javascript:testRightClick(event, this, 'Right clicked on somewhere-link2...');">somewhere</a>
+         <a href="somewhere.html" id="somewhere-link3" onclick="javascript:testControlClick(event, this, 'clicked on somewhere-link3...');" ondblclick="javascript:testControlClick(event, this, 'doubleclicked on somewhere-link3...');" onmousedown="javascript:testRightClick(event, this, 'Right clicked on somewhere-link3...');">somewhere 2</a>
+         <a href="somewhere.html" id="somewhere-link4" onclick="javascript:testControlClick(event, this, 'clicked on somewhere-link4...');" ondblclick="javascript:testControlClick(event, this, 'doubleclicked on somewhere-link4...');" onmousedown="javascript:testRightClick(event, this, 'Right clicked on somewhere-link4...');">somewhere</a>
+      </p>
+	</body>
+	
+	<table>
+	    <tr>
+	        <td><input name="x" type="radio" value="rb1" onclick="javascript:testControlClick(event, this, 'clicked on rb1...');" ondblclick="javascript:testControlClick(event, this, 'doubleclicked on rb1...');" onmousedown="javascript:testRightClick(event, this, 'Right clicked on rb1...');"></td>
+    	    <td><input name="x" type="radio" value="rb2" onclick="javascript:testControlClick(event, this, 'clicked on rb2...');" ondblclick="javascript:testControlClick(event, this, 'doubleclicked on rb2...');" onmousedown="javascript:testRightClick(event, this, 'Right clicked on rb2...');"></td>
+            <td><input name="x" type="radio" value="rb3" onclick="javascript:testControlClick(event, this, 'clicked on rb3...');" ondblclick="javascript:testControlClick(event, this, 'doubleclicked on rb3...');" onmousedown="javascript:testRightClick(event, this, 'Right clicked on rb3...');"></td>
+        </tr>	                
+	</table>
+	
+	<hr />
+
+	<span style="font-size: 16px; font-weight: bold;">Status:</span>
+	<form action="#">
+			<textarea name="textarea" title="textarea" id="testControlClick" rows="5" cols="25"></textarea>&nbsp;&nbsp;&nbsp;&nbsp;
+			<input value="Reset" id="reset" onclick="javascript:resetMe();" type="button" />
+	 </form>
+</html>
